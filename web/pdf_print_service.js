@@ -258,7 +258,7 @@ function abort() {
 }
 
 function renderProgress(index, total, l10n) {
-  let progressContainer = document.getElementById('printServiceOverlay');
+  let progressContainer = PDFViewerApplication.appConfig.shadowRoot.getElementById('printServiceOverlay');
   let progress = Math.round(100 * index / total);
   let progressBar = progressContainer.querySelector('progress');
   let progressPerc = progressContainer.querySelector('.relative-progress');
@@ -322,8 +322,8 @@ function ensureOverlay() {
     }
 
     overlayPromise = overlayManager.register('printServiceOverlay',
-      document.getElementById('printServiceOverlay'), abort, true);
-    document.getElementById('printCancel').onclick = abort;
+    PDFViewerApplication.appConfig.shadowRoot.getElementById('printServiceOverlay'), abort, true);
+    PDFViewerApplication.appConfig.shadowRoot.getElementById('printCancel').onclick = abort;
   }
   return overlayPromise;
 }

@@ -1514,7 +1514,7 @@ function webViewerInitialized() {
     fileInput.className = 'fileInput';
     fileInput.setAttribute('type', 'file');
     fileInput.oncontextmenu = noContextMenuHandler;
-    document.body.appendChild(fileInput);
+    appConfig.shadowRoot.appendChild(fileInput);
 
     if (!window.File || !window.FileReader ||
         !window.FileList || !window.Blob) {
@@ -1876,7 +1876,7 @@ function webViewerPresentationMode() {
 function webViewerOpenFile() {
   if (typeof PDFJSDev === 'undefined' || PDFJSDev.test('GENERIC')) {
     let openFileInputName = PDFViewerApplication.appConfig.openFileInputName;
-    document.getElementById(openFileInputName).click();
+    PDFViewerApplication.appConfig.shadowRoot.getElementById(openFileInputName).click();
   }
 }
 function webViewerPrint() {
@@ -2204,7 +2204,7 @@ function webViewerKeyDown(evt) {
 
   // Some shortcuts should not get handled if a control/input element
   // is selected.
-  let curElement = document.activeElement || document.querySelector(':focus');
+  let curElement = PDFViewerApplication.appConfig.shadowRoot.activeElement || PDFViewerApplication.appConfig.shadowRoot.querySelector(':focus');
   let curElementTagName = curElement && curElement.tagName.toUpperCase();
   if (curElementTagName === 'INPUT' ||
       curElementTagName === 'TEXTAREA' ||
