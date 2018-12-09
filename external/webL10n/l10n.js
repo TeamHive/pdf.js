@@ -955,17 +955,20 @@ document.webL10n = (function(window, document, undefined) {
 
   // translate an HTML subtree
   function translateFragment(element) {
-    element = element || document.documentElement;
-
+    if (window['PDFViewerApplication']) {
+      element = window['PDFViewerApplication'].appConfig.shadowRoot;
+    }
+    else {
+      element = element || document.documentElement;
+      // translate element itself if necessary
+      translateElement(element);
+    }
     // check all translatable children (= w/ a `data-l10n-id' attribute)
     var children = getTranslatableChildren(element);
     var elementCount = children.length;
     for (var i = 0; i < elementCount; i++) {
       translateElement(children[i]);
     }
-
-    // translate element itself if necessary
-    translateElement(element);
   }
 
   return {

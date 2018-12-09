@@ -204,7 +204,7 @@ function webViewerLoad(customConfig) {
 
     window.PDFViewerApplication = pdfjsWebApp.PDFViewerApplication;
     window.PDFViewerApplicationOptions = pdfjsWebAppOptions.AppOptions;
-    pdfjsWebApp.PDFViewerApplication.run(config);
+    pdfjsWebApp.PDFViewerApplication.run(customConfig || config);
   }
 }
 
