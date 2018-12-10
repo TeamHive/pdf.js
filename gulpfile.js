@@ -456,12 +456,12 @@ gulp.task('buildnumber', function (done) {
   exec('git log --format=oneline ' + config.baseVersion + '..',
       function (err, stdout, stderr) {
     var buildNumber = 0;
-    if (!err) {
-      // Build number is the number of commits since base version
-      buildNumber = stdout ? stdout.match(/\n/g).length : 0;
-    } else {
-      console.log('This is not a Git repository; using default build number.');
-    }
+    // if (!err) {
+    //   // Build number is the number of commits since base version
+    //   buildNumber = stdout ? stdout.match(/\n/g).length : 0;
+    // } else {
+    //   console.log('This is not a Git repository; using default build number.');
+    // }
 
     console.log('Extension build number: ' + buildNumber);
 
