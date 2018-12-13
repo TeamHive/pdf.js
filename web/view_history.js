@@ -55,22 +55,22 @@ class ViewHistory {
   }
 
   async _writeToStorage() {
-    let databaseStr = JSON.stringify(this.database);
+    // let databaseStr = JSON.stringify(this.database);
 
-    if (typeof PDFJSDev !== 'undefined' &&
-        PDFJSDev.test('FIREFOX || MOZCENTRAL')) {
-      sessionStorage.setItem('pdfjs.history', databaseStr);
-      return;
-    }
-    localStorage.setItem('pdfjs.history', databaseStr);
+    // if (typeof PDFJSDev !== 'undefined' &&
+    //     PDFJSDev.test('FIREFOX || MOZCENTRAL')) {
+    //   sessionStorage.setItem('pdfjs.history', databaseStr);
+    //   return;
+    // }
+    // localStorage.setItem('pdfjs.history', databaseStr);
   }
 
   async _readFromStorage() {
-    if (typeof PDFJSDev !== 'undefined' &&
-        PDFJSDev.test('FIREFOX || MOZCENTRAL')) {
-      return sessionStorage.getItem('pdfjs.history');
-    }
-    return localStorage.getItem('pdfjs.history');
+    // if (typeof PDFJSDev !== 'undefined' &&
+    //     PDFJSDev.test('FIREFOX || MOZCENTRAL')) {
+    //   return sessionStorage.getItem('pdfjs.history');
+    // }
+    // return localStorage.getItem('pdfjs.history');
   }
 
   async set(name, val) {
