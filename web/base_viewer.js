@@ -778,8 +778,10 @@ class BaseViewer {
       this._setScale(this._currentScaleValue, true);
     }
 
-    const pageView = this._pages[this._currentPageNumber - 1];
-    this._scrollIntoView({ pageDiv: pageView.div });
+    let pageView = this._pages[this._currentPageNumber - 1];
+
+    let top = parseInt(getComputedStyle(pageView.div).marginTop) * -1
+    this._scrollIntoView({ pageDiv: pageView.div, pageSpot: {top: top || 0} });
   }
 
   /**
