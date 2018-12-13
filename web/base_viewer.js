@@ -649,7 +649,9 @@ class BaseViewer {
     }
 
     let pageView = this._pages[this._currentPageNumber - 1];
-    this._scrollIntoView({ pageDiv: pageView.div, });
+
+    let top = parseInt(getComputedStyle(pageView.div).marginTop) * -1
+    this._scrollIntoView({ pageDiv: pageView.div, pageSpot: {top: top || 0} });
   }
 
   /**
