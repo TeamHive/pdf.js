@@ -482,7 +482,8 @@ let PDFViewerApplication = {
 
   get loadingBar() {
     let bar = new ProgressBar('#loadingBar');
-    return shadow(this, 'loadingBar', bar);
+    return bar;
+    // return shadow(this, 'loadingBar', bar);
   },
 
   get supportedMouseWheelZoomModifierKeys() {
