@@ -66,7 +66,7 @@ var LIB_DIR = BUILD_DIR + "lib/";
 var DIST_DIR = BUILD_DIR + "dist/";
 var TYPES_DIR = BUILD_DIR + "types/";
 var TYPESTEST_DIR = BUILD_DIR + "typestest/";
-var COMMON_WEB_FILES = ["web/images/*.{png,svg,gif,cur}", "web/debugger.js"];
+var COMMON_WEB_FILES = ["web/images/*.{png,svg,gif,cur}", "web/debugger.js", "web/fonts/*.woff"];
 var MOZCENTRAL_DIFF_FILE = "mozcentral.diff";
 
 var REPO = "git@github.com:mozilla/pdf.js.git";

@@ -1,0 +1,334 @@
+:root {
+  --page-box-shadow: 3px 3px 20px rgba(0,0,0,.1);
+  --page-margin: 20px;
+
+  --background-color: #F6F7FA;
+  --border-color: #DEDEDE;
+  --icon-color: #9D9D9D;
+  --accent-color: #57A5E0;
+
+  --toolbar-height: 50px;
+
+  --font-family: 'PDFViewerCircular';
+}
+
+/**
+* pdf_viewer.css
+*/
+.pdfViewer .page {
+  margin: var(--page-margin) auto;
+  box-shadow: var(--page-box-shadow);
+  border: none;
+  transform: translate3d(0, 100px, 0);
+  opacity: 0;
+  animation: expand .5s ease .5s forwards;
+}
+
+@keyframes expand {
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+/**
+* viewer.css
+*/
+body {
+  background: var(--background-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+#outerContainer {
+  font-family: var(--font-family);
+}
+
+#sidebarContainer {
+  top: var(--toolbar-height);
+}
+
+#sidebarContent {
+  top: 0;
+}
+
+#viewerContainer {
+  top: var(--toolbar-height);
+}
+
+#toolbarContainer {
+  background-color: var(--background-color);
+  height: var(--toolbar-height);
+  position: relative;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: none !important;
+}
+
+#toolbarSidebar {
+  height: var(--toolbar-height);
+  background: var(--background-color);
+  box-shadow: none !important;
+}
+
+#toolbarContainer,
+.findbar,
+.secondaryToolbar {
+  position: relative;
+  height: var(--toolbar-height);
+  background: var(--background-color);
+}
+
+#toolbarViewer {
+  height: var(--toolbar-height);
+  display: flex;
+  justify-content: space-between;
+}
+
+.secondaryToolbar {
+  top: var(--toolbar-height);
+  height: auto;
+  min-width: 16px;
+  padding: 0px 6px 0px 6px;
+  margin: 4px 2px 4px 2px;
+  color: hsl(0, 0%, 85%);
+}
+
+.findbar {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: calc(var(--toolbar-height) + 10px);
+  height: var(--toolbar-height);
+  color: var(--icon-color);
+  right: 10px;
+  width: 400px;
+  min-width: auto;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  color: var(--icon-color);
+}
+
+html[dir='ltr'] .findbar {
+  left: auto;
+}
+html[dir='rtl'] .findbar {
+  right: 10px;
+}
+
+#findPrevious, #findNext {
+  flex-shrink: 0;
+}
+
+#findNext {
+  border-radius: 0 6px 6px 0;
+}
+
+#findPrevious svg {
+  transform: rotate(-90deg);
+}
+
+#findNext svg {
+  transform: rotate(90deg);
+}
+
+html[dir='ltr'] #findPrevious {
+  margin-left: 0px;
+}
+html[dir='ltr'] #findNext {
+  margin-right: 0px;
+}
+
+html[dir='rtl'] #findPrevious {
+  margin-right: 0px;
+}
+html[dir='rtl'] #findNext {
+  margin-left: 0px;
+}
+
+#findInput {
+  width: 100%;
+}
+
+#findMsg:empty {
+  display: none !important;
+}
+
+#findInput.notFound {
+  background-color: transparent;
+}
+
+#findInput[data-status='pending'] {
+  background: none;
+}
+
+#toolbarViewerLeft,
+#toolbarViewerMiddle,
+#toolbarViewerRight {
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: auto;
+  transform: none;
+}
+
+@media all and (max-width: 900px) {
+  #toolbarViewerMiddle {
+    display: flex;
+    position: relative;
+  }
+}
+
+/**
+* Custom Theme
+*/
+.toolbar-button {
+  width: var(--toolbar-height);
+  height: 100%;
+  border-radius: 0;
+  padding: 16px;
+  border: none;
+  background: none;
+  transition: .2s ease;
+  cursor: pointer;
+}
+.toolbar-button svg {
+  fill: var(--icon-color);
+  transition: fill .2s ease;
+}
+.toolbar-button:hover {
+  background: rgba(0,0,0,.05);
+}
+.toolbar-button.toggled {
+  background: var(--accent-color);
+}
+.toolbar-button.toggled svg {
+  fill: var(--background-color);
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--icon-color);
+}
+.pager .toolbar-button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 2px solid var(--icon-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pager .toolbar-button svg {
+  width: 12px;
+}
+.pager .toolbar-button.next svg {
+  transform: scale(-1)
+}
+.pager input {
+  border-radius: 0;
+  width: 30px;
+  font-weight: 500;
+  text-align: center;
+  font-size: 16px;
+  padding: 2px;
+  background: none;
+  color: var(--icon-color);
+  font-family: var(--font-family);
+  border: none;
+  outline: none;
+  line-height: 13px;
+  margin: 0;
+  margin-left: 10px;
+  border-bottom: 2px solid currentColor;
+  -moz-appearance: textfield;
+}
+.pager input::-webkit-inner-spin-button,
+.pager input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.pager #numPages {
+  margin-right: 10px;
+  padding: 2px;
+  border-bottom: 2px solid transparent;
+}
+@media all and (max-width: 640px) {
+  .pager {
+    margin: 0 5px;
+  }
+  .pager .toolbar-button {
+    display: none;
+  }
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: var(--font-family);
+  color: var(--icon-color);
+  height: 25px;
+  padding: 0 15px;
+  font-size: 16px;
+}
+
+.search-meta {
+  position: absolute !important;
+  top: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.search-meta .meta-label#findResultsCount,
+.search-meta .meta-label#findMsg {
+  font-style: normal;
+  display: block;
+  background: var(--accent-color);
+  color: var(--background-color);
+  margin-top: 5px;
+  padding: 5px 15px;
+  border-radius: 999px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+}
+
+@media all and (max-width: 640px) {
+  .findbar {
+    left: 0 !important;
+    right: 0;
+    width: 100%;
+    top: var(--toolbar-height);
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  .findbar .search-meta {
+    left: 10px;
+    padding-top: 5px;
+  }
+}
+
+.separator {
+  width: 1px;
+  height: 100%;
+  background: var(--border-color);
+}
+
+/**
+* Custom Fonts
+*/
+@font-face {
+  font-family: 'PDFViewerCircular';
+  src: url('./fonts/CircularStd-Book.woff') format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'PDFViewerCircular';
+  src: url('./fonts/CircularStd-Medium.woff') format('woff');
+  font-weight: 500;
+}
