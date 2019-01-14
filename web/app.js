@@ -2404,9 +2404,15 @@ function webViewerPreviousPage() {
 }
 function webViewerZoomIn() {
   PDFViewerApplication.zoomIn();
+
+  document.getElementById('fitPage').classList.remove('hidden');
+  document.getElementById('fitWidth').classList.add('hidden');
 }
 function webViewerZoomOut() {
   PDFViewerApplication.zoomOut();
+
+  document.getElementById('fitPage').classList.remove('hidden');
+  document.getElementById('fitWidth').classList.add('hidden');
 }
 function webViewerZoomReset() {
   PDFViewerApplication.zoomReset();
@@ -2433,6 +2439,15 @@ function webViewerPageNumberChanged(evt) {
 }
 function webViewerScaleChanged(evt) {
   PDFViewerApplication.pdfViewer.currentScaleValue = evt.value;
+
+  if (evt.value === 'page-fit') {
+    document.getElementById('fitPage').classList.add('hidden');
+    document.getElementById('fitWidth').classList.remove('hidden');
+  }
+  else {
+    document.getElementById('fitPage').classList.remove('hidden');
+    document.getElementById('fitWidth').classList.add('hidden');
+  }
 }
 function webViewerRotateCw() {
   PDFViewerApplication.rotatePages(90);
