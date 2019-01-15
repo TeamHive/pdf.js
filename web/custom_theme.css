@@ -19,16 +19,6 @@
   margin: var(--page-margin) auto;
   box-shadow: var(--page-box-shadow);
   border: none;
-  transform: translate3d(0, 100px, 0);
-  opacity: 0;
-  animation: expand .5s ease .5s forwards;
-}
-
-@keyframes expand {
-  to {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
 }
 
 /**
