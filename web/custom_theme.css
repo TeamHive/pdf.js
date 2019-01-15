@@ -43,6 +43,8 @@ body {
 
 #viewerContainer {
   top: var(--toolbar-height);
+  padding-top: var(--pdf-viewer-top-offset);
+  padding-bottom: var(--pdf-viewer-bottom-offset);
 }
 
 #toolbarContainer {
