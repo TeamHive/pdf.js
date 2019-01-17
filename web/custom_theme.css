@@ -31,6 +31,8 @@ body {
 
 #outerContainer {
   font-family: var(--font-family);
+  top: 0;
+  position: absolute;
 }
 
 #sidebarContainer {
