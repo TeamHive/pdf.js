@@ -1526,12 +1526,12 @@ const PDFViewerApplication = {
   /**
    * @private
    */
-  _initializePdfHistory({ fingerprint, viewOnLoad, initialDest = null }) {
-    if (this.isViewerEmbedded || AppOptions.get("disableHistory")) {
+  _initializePdfHistory({ fingerprint, viewOnLoad, initialDest = null, }) {
+    // if (AppOptions.get('disableHistory') || this.isViewerEmbedded) {
       // The browsing history is only enabled when the viewer is standalone,
       // i.e. not when it is embedded in a web page.
-      return;
-    }
+    //   return;
+    // }
     this.pdfHistory.initialize({
       fingerprint,
       resetHistory: viewOnLoad === ViewOnLoad.INITIAL,
