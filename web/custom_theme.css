@@ -377,6 +377,25 @@ html[dir='rtl'] #findNext {
   background: var(--border-color);
 }
 
+#overlayContainer > .container > .dialog {
+  color: var(--icon-color);
+  background: var(--background-color);
+  box-shadow: var(--page-box-shadow);
+  border-radius: 0;
+  border: none;
+}
+
+.overlayButton {
+  background: transparent;
+  font-family: var(--font-family);
+  color: currentColor;
+  border: 2px solid currentColor;
+  padding: 5px;
+  font-weight: 500;
+  line-height: 12px;
+  border-radius: 0;
+}
+
 /**
 * Custom Fonts
 */
