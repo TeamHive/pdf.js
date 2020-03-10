@@ -2,14 +2,45 @@
   --page-box-shadow: 3px 3px 20px rgba(0,0,0,.1);
   --page-margin: 20px;
 
-  --background-color: #F6F7FA;
-  --border-color: #DEDEDE;
-  --icon-color: #9D9D9D;
+  --background-color: #F6F6F9;
+  --toolbar-background-color: #FFFFFF;
+  --border-color: #F1F1F4;
+  --icon-color: #636366;
   --accent-color: #57A5E0;
 
-  --toolbar-height: 50px;
+  --toolbar-height: 56px;
 
   --font-family: 'PDFViewerCircular';
+
+  --page-border-radius: 0px;
+}
+
+.floating-buttons {
+  position: fixed !important;
+  bottom: 32px;
+  right: 32px;
+  display: flex;
+  flex-direction: column;
+}
+.floating-buttons .toolbar-button {
+  background: var(--toolbar-background-color);
+  border-radius: 100%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08);
+  border: 1px solid var(--border-color);
+  padding: 0;
+  margin-bottom: 8px;
+}
+.floating-buttons .toolbar-button:hover {
+  background: var(--toolbar-background-color);
+}
+.floating-buttons .toolbar-button svg {
+  width: 24px;
+  height: 24px;
 }
 
 /**
@@ -19,6 +50,8 @@
   margin: var(--page-margin) auto;
   box-shadow: var(--page-box-shadow);
   border: none;
+  overflow: hidden;
+  border-radius: var(--page-border-radius);
 }
 
 /**
@@ -50,16 +83,16 @@ body {
 }
 
 #toolbarContainer {
-  background-color: var(--background-color);
+  background-color: var(--toolbar-background-color);
   height: var(--toolbar-height);
   position: relative;
   border-bottom: 1px solid var(--border-color);
-  box-shadow: none !important;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.05) !important;
 }
 
 #toolbarSidebar {
   height: var(--toolbar-height);
-  background: var(--background-color);
+  background: var(--toolbar-background-color);
   box-shadow: none !important;
 }
 
@@ -68,7 +101,7 @@ body {
 .secondaryToolbar {
   position: relative;
   height: var(--toolbar-height);
-  background: var(--background-color);
+  background: var(--toolbar-background-color);
 }
 
 #toolbarViewer {
@@ -277,7 +310,8 @@ html[dir='rtl'] #findNext {
   width: 24px;
   height: 24px;
   padding: 0;
-  border: 2px solid var(--icon-color);
+  border-radius: 100%;
+  background: var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -289,21 +323,19 @@ html[dir='rtl'] #findNext {
   transform: scale(-1)
 }
 .pager input {
-  border-radius: 0;
-  width: 30px;
+  border-radius: 4px;
+  width: 40px;
   font-weight: 500;
   text-align: center;
   font-size: 16px;
-  padding: 2px;
   background: none;
   color: var(--icon-color);
   font-family: var(--font-family);
   border: none;
   outline: none;
   line-height: 13px;
-  margin: 0;
-  margin-left: 10px;
-  border-bottom: 2px solid currentColor;
+  margin: 0 4px 0 8px;
+  border: 2px solid var(--border-color);
   -moz-appearance: textfield;
 }
 .pager input::-webkit-inner-spin-button,
@@ -313,8 +345,7 @@ html[dir='rtl'] #findNext {
 }
 .pager #numPages {
   margin-right: 10px;
-  padding: 2px;
-  border-bottom: 2px solid transparent;
+  border: 2px solid transparent;
 }
 @media all and (max-width: 640px) {
   .pager {
@@ -373,7 +404,7 @@ html[dir='rtl'] #findNext {
 
 .separator {
   width: 1px;
-  height: 100%;
+  height: calc(100% - 30px);
   background: var(--border-color);
 }
 
