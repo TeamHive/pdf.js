@@ -13,6 +13,8 @@
   --font-family: 'PDFViewerCircular';
 
   --page-border-radius: 0px;
+
+  --floating-buttons-offset: 0px;
 }
 
 .floating-buttons {
@@ -21,6 +23,7 @@
   right: 32px;
   display: flex;
   flex-direction: column;
+  margin-bottom: var(--floating-buttons-offset);
 }
 .floating-buttons .toolbar-button {
   background: var(--toolbar-background-color);
