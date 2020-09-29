@@ -158,33 +158,17 @@ class Toolbar {
     });
 
     document.getElementById('fitPage').addEventListener('click', function() {
-      eventBus.dispatch('scalechanged', {
+      self.eventBus.dispatch('scalechanged', {
         source: self,
         value: 'page-fit',
       });
     });
 
     document.getElementById('fitWidth').addEventListener('click', function() {
-      eventBus.dispatch('scalechanged', {
+      self.eventBus.dispatch('scalechanged', {
         source: self,
         value: 'page-width',
       });
-    });
-
-    items.presentationModeButton.addEventListener('click', function() {
-      eventBus.dispatch('presentationmode', { source: self, });
-    });
-
-    items.openFile.addEventListener('click', function() {
-      eventBus.dispatch('openfile', { source: self, });
-    });
-
-    items.print.addEventListener('click', function() {
-      eventBus.dispatch('print', { source: self, });
-    });
-
-    items.download.addEventListener('click', function() {
-      eventBus.dispatch('download', { source: self, });
     });
 
     // Suppress context menus for some controls.
