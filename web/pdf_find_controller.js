@@ -188,11 +188,17 @@ class PDFFindController {
     }
     this._scrollMatches = false; // Ensure that scrolling only happens once.
 
-    const spot = {
-      top: MATCH_SCROLL_OFFSET_TOP,
-      left: MATCH_SCROLL_OFFSET_LEFT,
-    };
-    scrollIntoView(element, spot, /* skipOverflowHiddenElements = */ true);
+    setTimeout(() => {
+      const findbar = document.querySelector('#findbar');
+      const searchMeta = findbar.querySelector('.search-meta');
+      const top = (findbar.offsetHeight + searchMeta.offsetHeight + 20) * -1;
+
+      const spot = {
+        top,
+        left: MATCH_SCROLL_OFFSET_LEFT,
+      };
+      scrollIntoView(element, spot, /* skipOverflowHiddenElements = */ true);
+    })
   }
 
   _reset() {

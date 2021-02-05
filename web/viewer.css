@@ -497,9 +497,9 @@ html[dir="rtl"] #outerContainer.sidebarOpen #loadingBar {
   min-width: 300px;
   background-color: var(--toolbar-bg-color);
 }
-.findbar > div {
+/* .findbar > div {
   height: 32px;
-}
+} */
 .findbar.wrapContainers > div {
   clear: both;
 }
